@@ -56,7 +56,7 @@ bool subsetExist(vector<int> &nums, int target)
 
 int main()
 {
-    vector<int> nums = {1, 2, 3, 4};
-    cout << subsetExist(nums, 100);
+    vector<int> nums = {1 ,2, 3, 4};
+    cout << subsetExist(nums, 7);
     return 0;
 }
