@@ -2,16 +2,16 @@
 using namespace std;
 // Subset sum problem: Given an array of n integer. There exists two subset whose sum is equal to K
 
-bool f1(int ind, int target, vector<int> &arr, vector<int>&dp)
+bool f1(int ind, int target, vector<int> &arr, vector<vector<int>>&dp)
 {
     if (target == 0)
         return true;
     if (ind == 0)
     {
-        return arr[ind] == target;
+        return arr[0] == target;
     }
 
-    if(dp[ind] != -1)return dp[ind];
+    if(dp[ind][target] != -1)return dp[ind][target];
     bool notTake = f1(ind - 1, target, arr, dp);
     bool take = false;
     if (arr[ind] <= target)
@@ -19,7 +19,7 @@ bool f1(int ind, int target, vector<int> &arr, vector<int>&dp)
         take = f1(ind - 1, target - arr[ind], arr, dp);
     }
 
-    return dp[ind] = notTake | take;
+    return dp[ind][target] = notTake | take;
 }
 
 bool tabulation(vector<int>&arr, int target){
@@ -49,14 +49,14 @@ bool tabulation(vector<int>&arr, int target){
 bool subsetExist(vector<int> &nums, int target)
 {
     int s = nums.size();
-    vector<int>dp(s, -1);
-    // return f1(s - 1, target, nums, dp);
-    return tabulation(nums,target);
+    vector<vector<int>>dp(s+1, vector<int>(target+1, -1));
+    return f1(s - 1, target, nums, dp);
+    // return tabulation(nums,target);
 }
 
 int main()
 {
-    vector<int> nums = {1 ,2, 3, 4};
-    cout << subsetExist(nums, 7);
+    vector<int> nums = {1, 3, 4};
+    cout << subsetExist(nums, 8);
     return 0;
 }
