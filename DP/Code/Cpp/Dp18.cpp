@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// #Count Paritition with given difference
+//Count Paritition with given difference
 
 int f1(int ind, vector<int>&nums, int target, vector<vector<int>>&dp){
     //If number in array contains numbers greater than equal to 0
