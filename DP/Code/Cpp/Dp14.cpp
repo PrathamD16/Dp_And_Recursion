@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// Subset sum problem: Given an array of n integer. There exists two subset whose sum is equal to K
+// Subset sum problem: Given an array of n integer. There exists subset whose sum is equal to K
 
 bool f1(int ind, int target, vector<int> &arr, vector<vector<int>>&dp)
 {
@@ -57,6 +57,6 @@ bool subsetExist(vector<int> &nums, int target)
 int main()
 {
     vector<int> nums = {1, 3, 4};
-    cout << subsetExist(nums, 8);
+    cout << subsetExist(nums, 9);
     return 0;
 }
